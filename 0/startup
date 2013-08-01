@@ -1,0 +1,3 @@
+write "Fuel level:"
+write(turtle.getFuelLevel())
+write("\n")

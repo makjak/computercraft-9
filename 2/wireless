@@ -1,3 +1,0 @@
-local wires = peripheral.wrap("front")
-wires.open(5)
-wires.craft()

@@ -1,17 +1,6 @@
-# N3rdgir1's Computercraft Code
+# n3rdgir1's Computercraft Code
 
-These are my Computercraft programs for Tekkit Lite.
-
-These can be used as a place to start, or in your game.
-
-The computer files are located in saves/Your Save File/computer
-
-There are 2 files you should never edit:
-* labels.txt
-* lastid.txt
-
-Labels.txt will be map the names of the device to the folder they are in.
-Lastid.txt is apparently useful to the Computercraft.
+These are my running computer programs. I'm keeping them as a repository for managing them between servers so I never really lose anything. I'm integrating with (pastebin)[http://pastebin.com/u/n3rdgir1] to get them to the servers. Hopefully I'll keep this up to date as I go.
 
 ## Helpful Tidbits
 
@@ -21,6 +10,6 @@ Lastid.txt is apparently useful to the Computercraft.
  
 ## Helpful Links
 
-Tekkit Launcher: http://www.technicpack.net/download
 Lua: http://www.lua.org/
 Computercraft Wiki: http://computercraft.info/
+Pastebin: http://pasebin.com

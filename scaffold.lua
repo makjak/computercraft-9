@@ -1,4 +1,4 @@
-print "Loaded scaffold v0.1"
+print "Loaded scaffold v0.2"
 -- Replace a program with the current version
 -- Arguments
   -- filename: the program name

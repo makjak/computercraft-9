@@ -24,17 +24,25 @@ file:close()
 os.unloadAPI("scaffold")
 os.loadAPI("scaffold")
 
--- get and run new startup program
-local file = fs.open("pb","r")
-if file then
+-- get and run new startup program from pastebin or n3rdgir1's github
+if fs.exists('pb') then
+  local file = fs.open("pb","r")
   local address = file.readLine()
 
-  if address then
-    scaffold.replacePastebin(address, "StartupProgram")
+  if scaffold.replacePastebin(address, "StartupProgram") then
     shell.run("StartupProgram")
   else
-    print "no address listed in 'pb,' skipping"
+    print "could not replace file from pastebin"
+  end
+elseif fs.exists('github') then
+  local file = fs.open("github","r")
+  local address = file.readLine()
+
+  if scaffold.replaceGithub(address, "StartupProgram") then
+    shell.run("StartupProgram")
+  else
+    print "could not replace file from github"
   end
 else
-  print "No file 'pb' provided, skipping"
+  print "provide a 'github' or 'pb' file to load startup program"
 end

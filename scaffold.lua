@@ -1,26 +1,30 @@
 print "Loaded scaffold v0.1"
 -- Replace a program with the current version
 -- Arguments
-  -- filename: the startup program
+  -- filename: the program name
   -- pastebin: where to get the file from pastebin
-  -- TODO: load file from github
-function replaceProgram(options)
-  print "replaceProgram"
-
-  for key,value in pairs( options ) do
-    print(tostring(key)..": "..tostring(value))
-  end
-
-  if options.filename and options.pastebin then
-    shell.run("rm", options.filename)
-    shell.run("pastebin", "get", options.pastebin, options.filename)
+function replacePastebin(pastebin, filename)
+  if filename and pastebin then
+    shell.run("rm", filename)
+    shell.run("pastebin", "get", pastebin, filename)
     return true -- success
   else
-    print "usage: replaceProgram(filename=filename, pastebin=pastebin)"
+    print "usage: replaceProgram(pastebin, filename)"
   end
 
   -- return false if anything went wrong
   return false
+
+end
+
+function replaceProgram(location, filename)
+--shell.run("rm", "scaffold")
+--local wget = http.get("https://raw.githubusercontent.com/n3rdgir1/computercraft/master/startup.lua")
+--local scaffold = wget:readAll()
+--local file = io.open("scaffold", "w")
+--file:write(scaffold)
+--file:close()
+
 end
 
 function startup()

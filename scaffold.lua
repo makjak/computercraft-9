@@ -19,10 +19,10 @@ end
 function replaceGithub(github, filename)
   if github=="" then
     print("You must provide a github address")
-    false
+    return false
   else
     replaceProgram("https://raw.githubusercontent.com/n3rdgir1/computercraft/master/"..github, filename)
-    true
+    return true
   end
 end
 
@@ -33,10 +33,10 @@ end
 function replacePastebin(pastebin, filename)
   if pastebin=="" then
     print("You must provide a pastebin address")
-    false
+    return false
   else
     replaceProgram("http://pastebin.com/raw.php?i="..pastebin, filename)
-    true
+    return true
   end
 end
 

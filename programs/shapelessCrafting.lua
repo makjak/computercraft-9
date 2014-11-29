@@ -34,7 +34,7 @@ function returnFrom(side)
 end
 
 function gatherFor(side)
-  if side = "top" then
+  if side == "top" then
     turtle.suckUp(1)
   elseif side == "bottom" then
     turtle.suckDown(1)

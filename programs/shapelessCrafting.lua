@@ -9,7 +9,9 @@
 
 config = fs.open('config','r')
 inputs = config.readLine()
+print("Inputs: "..inputs)
 output = config.readLine()
+print("Output: "..output)
 
 function turnTo(side)
   if side == "right" then

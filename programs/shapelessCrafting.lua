@@ -50,7 +50,12 @@ function gatherFor(side)
   end
 
   t = { up = 2, down = 3, left = 4, right = 5, top = 6, bottom = 7 }
-  turtle.transferTo(t[side])
+  if turtle.getItemCount(1) == 1 then
+    turtle.transferTo(t[side])
+    return true
+  else
+    return false
+  end
 end
 
 function gatherMaterials(inputs)

@@ -48,7 +48,7 @@ function gatherFor(side)
   turtle.transferTo(t[side])
 end
 
-function gaterMaterials(inputs)
+function gatherMaterials(inputs)
   for side in inputs.gmatch(str, '([^,]+)') do
     success = false
     while not success do

@@ -6,7 +6,7 @@ print "Loaded scaffold v0.2"
 function replacePastebin(pastebin, filename)
   print("Replacing "..filename.." with paste from "..pastebin)
 
-  local wget = http.get("http://pastebin.com/"..pastebin)
+  local wget = http.get("http://pastebin.com/raw.php?i="..pastebin)
   local txt = wget:readAll()
   local file = io.open(filename, "w")
   file:write(txt)

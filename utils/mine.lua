@@ -1,7 +1,10 @@
+os.loadAPI('scaffold')
+scaffold.loadAPI('inventory')
+
 function mineForward(debug)
   if debug then print("mining forward") end
   turtle.dig()
-  if sort(debug) then
+  if inventory.sort(debug) then
     if debug then print("sorted, moving forward") end
     turtle.forward()
     return true
@@ -13,7 +16,7 @@ end
 function mineUp(debug)
   if debug then print("mining up") end
   turtle.digUp()
-  haveRoom = sort(debug)
+  haveRoom = inventory.sort(debug)
   if turtle.detectUp() and haveRoom then
     if debug then print("*&@)$ falling blocks") end
     mineUp()
@@ -24,7 +27,7 @@ end
 function mineDown(debug)
   if debug then print("mining down") end
   turtle.digDown()
-  haveRoom = sort(debug)
+  haveRoom = inventory.sort(debug)
   return haveRoom
 end
 

@@ -1,48 +1,40 @@
--- General startup program for all systems
-  -- Installs scaffold from pastebin
-  -- Checks the file located at "pastebin" for the program to run on this box, downloads a fresh copy and installs it
-  -- Outputs the fuel level if this is a turtle (for convenience)
+-- Startup program for Computercraft Systems
 
--- If this is a turtle, output the fuel level
-if turtle then
-  write "Fuel level:"
-  write(turtle.getFuelLevel())
-end
+-- Author: n3rdgir1
+-- Github: https://github.com/n3rdgir1
+-- My Computercraft code: https://github.com/n3rdgir1/computercraft
+-- Pastebin Location: http://pastebin.com/7dQ2zbk9
+
+-- General startup program for all systems
+  -- Installs scaffold from my github
+  -- Checks the file located at "pb" for the program to run on this box, downloads a fresh copy and installs it
 
 -- Set the computer's name if necessary
 -- os.setComputerLabel("DeviceName")
 
--- Replace a program with the current version from pastebin
--- Arguments
-  -- filename: the startup program
-  -- pastebin: where to get the file from pastebin
-function replaceProgram(options)
-  print "replaceProgram"
-  for key,value in pairs( options ) do
-    print(tostring(key)..": "..tostring(value))
-  end
-  if options.filename and options.pastebin then
-    shell.run("rm", options.filename)
-    shell.run("pastebin", "get", options.pastebin, options.filename)
-  else
-    print "usage: replaceProgram(filename=filename, pastebin=pastebin)"
-  end
-end
+-- load the scaffold
+shell.run("rm", "scaffold")
+local wget = http.get("https://raw.githubusercontent.com/n3rdgir1/computercraft/master/scaffold.lua")
+local txt = wget:readAll()
+local file = io.open("scaffold", "w")
+file:write(txt)
+file:close()
 
--- get new scaffold
-replaceProgram{pastebin="2eFQ8BEe", filename="scaffold"}
+-- reload the api to get the freshest copy
+os.unloadAPI("scaffold")
+os.loadAPI("scaffold")
 
--- get new startup program
+-- get and run new startup program
 local file = fs.open("pb","r")
 if file then
   local address = file.readLine()
 
   if address then
-    replaceProgram{pastebin=address, filename="StartupProgram"}
+    scaffold.replacePastebin(address, "StartupProgram")
     shell.run("StartupProgram")
   else
-    print "no address listed in 'pastebin,' skipping"
+    print "no address listed in 'pb,' skipping"
   end
 else
-  print "No file 'pastebin' provided, skipping"
+  print "No file 'pb' provided, skipping"
 end

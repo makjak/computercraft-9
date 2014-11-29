@@ -1,3 +1,3 @@
-os.loadAPI("scafold")
+scaffold.load('mine')
 
-scaffold.tunnelToFull(-1)
+mine.tunnelToFull(-1)

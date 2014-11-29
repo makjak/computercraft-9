@@ -1,3 +1,4 @@
+print "Loaded scaffold v0.1"
 -- Replace a program with the current version
 -- Arguments
   -- filename: the startup program

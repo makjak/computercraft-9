@@ -19,7 +19,7 @@ function replaceProgram(options)
   end
 
   -- return false if anything went wrong
-  false
+  return false
 end
 
 function startup()

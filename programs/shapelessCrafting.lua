@@ -2,7 +2,7 @@
   -- line 1: the inputs, as a comma separated list
   -- line 2: the ouput
 -- Setup:
-  -- If you need an item for the shapeless crafting, place in bottom right corner (slot 16)
+  -- If you need an item for the shapeless crafting, trial and error will let you know where it goes
 -- Assumptions
   -- shapeless crafting
   -- there is only on item needed for each item type
@@ -40,22 +40,16 @@ end
 
 function gatherFor(side)
   if side == "top" then
-    turtle.suckUp(1)
+    success = turtle.suckUp(1)
   elseif side == "bottom" then
-    turtle.suckDown(1)
+    success = turtle.suckDown(1)
   else
     turnTo(side)
-    turtle.suck(1)
+    success = turtle.suck(1)
     returnFrom(side)
   end
 
-  t = { up = 2, down = 3, left = 4, right = 5, top = 6, bottom = 7 }
-  if turtle.getItemCount(1) == 1 then
-    turtle.transferTo(t[side])
-    return true
-  else
-    return false
-  end
+  return success
 end
 
 function gatherMaterials(inputs)

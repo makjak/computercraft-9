@@ -2,9 +2,12 @@
 
 These are my running computer programs. I'm keeping them as a repository for managing them between servers so I never really lose anything. I'm integrating with [my pastebin](http://pastebin.com/u/n3rdgir1) to get them to the servers. Hopefully I'll keep this up to date as I go.
 
-## Startup program
+## startup.lua
 
-* This program will automatically load my scaffold program which has all my utils
+* This program will automatically load a fresh copy of my scaffold program which has all my utils
+* Loads the configured pastebin or github file and runs it
+  * Pastebin: add the paste location to the file 'pb'
+  * Github: add the file locaiton to the file 'github', include the full path if the file is not in the root directory
 
 ## Helpful Tidbits
 

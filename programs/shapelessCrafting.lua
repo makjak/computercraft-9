@@ -7,6 +7,9 @@
   -- shapeless crafting
   -- there is only on item needed for each item type
 
+
+print "WARNING: PROGRAM STILL IN PROGRESS"
+
 config = fs.open('config','r')
 inputs = config.readLine()
 print("Inputs: "..inputs)

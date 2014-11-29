@@ -7,7 +7,7 @@
   -- shapeless crafting
   -- there is only on item needed for each item type
 
-config = op.open('config','r')
+config = fs.open('config','r')
 inputs = config.readLine()
 output = config.readLine()
 

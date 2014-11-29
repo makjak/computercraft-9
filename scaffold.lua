@@ -5,10 +5,12 @@ print "Loaded scaffold v0.2"
   -- pastebin: where to get the file from pastebin
 function replacePastebin(pastebin, filename)
   print("Replacing "..filename.." with paste from "..pastebin)
-  if fs.exists(filename) then
-    shell.run("rm", filename)
-  end
-  shell.run("pastebin", "get", pastebin, filename)
+
+  local wget = http.get("http://pastebin.com/"..pastebin)
+  local txt = wget:readAll()
+  local file = io.open(filename, "w")
+  file:write(txt)
+  file:close()
 end
 
 function replaceProgram(location, filename)

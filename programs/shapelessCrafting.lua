@@ -51,7 +51,7 @@ function gatherFor(side)
 end
 
 function gatherMaterials(inputs)
-  for side in inputs.gmatch(str, '([^,]+)') do
+  for side in string.gmatch(inputs, '([^,]+)') do
     success = false
     while not success do
       success = gatherFor(side)

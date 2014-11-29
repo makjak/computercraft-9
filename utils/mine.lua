@@ -44,12 +44,12 @@ end
 
 function goBack(i, debug)
   if debug then print("going back") end
-  turnAround()
+  scaffold.turnAround()
   while i > 0 do
     turtle.forward()
     i = i - 1
   end
-  if debug then turnAround() end
+  if debug then scaffold.turnAround() end
 end
 
 function tunnelToFull(i, debug)

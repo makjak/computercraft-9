@@ -1,3 +1,3 @@
-scaffold.load('mine')
+scaffold.loadAPI('mine')
 
 mine.tunnelToFull(-1)

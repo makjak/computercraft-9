@@ -4,17 +4,8 @@ print "Loaded scaffold v0.1"
   -- filename: the program name
   -- pastebin: where to get the file from pastebin
 function replacePastebin(pastebin, filename)
-  if filename and pastebin then
-    shell.run("rm", filename)
-    shell.run("pastebin", "get", pastebin, filename)
-    return true -- success
-  else
-    print "usage: replaceProgram(pastebin, filename)"
-  end
-
-  -- return false if anything went wrong
-  return false
-
+  shell.run("rm", filename)
+  shell.run("pastebin", "get", pastebin, filename)
 end
 
 function replaceProgram(location, filename)

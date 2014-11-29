@@ -4,6 +4,7 @@ print "Loaded scaffold v0.2"
   -- filename: the program name
   -- pastebin: where to get the file from pastebin
 function replacePastebin(pastebin, filename)
+  print("Replacing "..filename.." with paste from "..pastebin)
   shell.run("rm", filename)
   shell.run("pastebin", "get", pastebin, filename)
 end

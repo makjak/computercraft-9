@@ -1,5 +1,36 @@
+-- Replace a program with the current version
+-- Arguments
+  -- filename: the startup program
+  -- pastebin: where to get the file from pastebin
+  -- TODO: load file from github
+function replaceProgram(options)
+  print "replaceProgram"
 
-n transfer(array)
+  for key,value in pairs( options ) do
+    print(tostring(key)..": "..tostring(value))
+  end
+
+  if options.filename and options.pastebin then
+    shell.run("rm", options.filename)
+    shell.run("pastebin", "get", options.pastebin, options.filename)
+    return true -- success
+  else
+    print "usage: replaceProgram(filename=filename, pastebin=pastebin)"
+  end
+
+  -- return false if anything went wrong
+  false
+end
+
+function startup()
+  -- If this is a turtle, output the fuel level
+  if turtle then
+    write "Fuel level:"
+    write(turtle.getFuelLevel())
+  end
+end
+
+function transfer(array)
   for i,v in ipairs(array) do
     if not(turtle.transferTo(v,1)) then
       turtle.select(2)
